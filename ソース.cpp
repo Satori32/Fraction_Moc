@@ -109,6 +109,12 @@ Fraction<T> Div(Fraction<T>& In, Fraction<T>& B) {
 
 	return R;
 }
+
+template<class T>
+T Mod(Fraction<T> In) {
+	return In.Up % In.Buttom;
+}
+
 template<class T>
 T Divide(Fraction<T> In) {
 	return In.Up / In.Buttom;
@@ -131,4 +137,8 @@ int main() {
 	C = Sub(A, B);
 	C = Mul(A, B);
 	C = Div(A, B);
+	int D = Mod(A);
+	int X = Divide(A);
+
+	return 0;
 }
