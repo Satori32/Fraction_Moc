@@ -1,13 +1,4 @@
-/** /
-#include <stdio.h>
-#include <stdint.h>
-
-template<class T>
-struct Fraction {
-	T Up = 0;
-	T Buttom = 0;
-};
-
+#include "Fraction.h"
 
 template<class T>
 Fraction<T> ConstructFraction(T Number) {
@@ -30,7 +21,7 @@ intmax_t GCD(intmax_t A, intmax_t B) {
 	intmax_t X = A % B;
 	intmax_t Y = A;
 
-	while(X != 0) {
+	while (X != 0) {
 		Y = X;
 		X = Y % X;
 	}
@@ -54,7 +45,7 @@ Fraction<T> Add(Fraction<T>& In, Fraction<T>& B) {
 	R.Buttom = A.Buttom;
 	R.Up = A.Up + B.Up;
 
-	int D=GCD(R.Up, R.Buttom);
+	int D = GCD(R.Up, R.Buttom);
 	R.Up /= D;
 	R.Buttom /= D;
 	return R;
@@ -77,7 +68,7 @@ Fraction<T> Sub(Fraction<T>& In, Fraction<T>& B) {
 	R.Buttom = A.Buttom;
 	R.Up = A.Up - B.Up;
 
-	int D=GCD(R.Up, R.Buttom);
+	int D = GCD(R.Up, R.Buttom);
 	R.Up /= D;
 	R.Buttom /= D;
 	return R;
@@ -95,7 +86,9 @@ Fraction<T> Mul(Fraction<T>& In, Fraction<T>& B) {
 
 	return R;
 
-}template<class T>
+}
+
+template<class T>
 Fraction<T> Div(Fraction<T>& In, Fraction<T>& B) {
 	Fraction<T> R;
 	Fraction<T> C;
@@ -128,22 +121,4 @@ T Up(Fraction<T>& In) {
 template<class T>
 T Buttom(Fraction<T>& In) {
 	return In.Buttom;
-}
-/**/
-
-#include "Fraction.h" 
-
-int main() {
-	Fraction<int> A = ConstructFraction<int>(16, 21);
-	Fraction<int> B = ConstructFraction<int>(21, 15);
-	Fraction<int> C = ConstructFraction<int>(0, 0);
-
-	C = Add(A, B);
-	C = Sub(A, B);
-	C = Mul(A, B);
-	C = Div(A, B);
-	int D = Mod(A);
-	int X = Divide(A);
-
-	return 0;
 }
