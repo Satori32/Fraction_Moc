@@ -105,12 +105,12 @@ Fraction<T> Div(Fraction<T>& In, Fraction<T>& B) {
 }
 
 template<class T>
-T Mod(Fraction<T> In) {
+T Mod(Fraction<T>& In) {
 	return In.Up % In.Buttom;
 }
 
-template<class T>
-T Divide(Fraction<T> In) {
+template<class T,class U>
+T Divide(Fraction<U>& In) {
 	return In.Up / In.Buttom;
 }
 
